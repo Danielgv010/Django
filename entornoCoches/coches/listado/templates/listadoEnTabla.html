@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Coches</title>
+</head>
+<body>
+    <table border="200">
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for coche in listaCoches %}
+            <tr>
+                <td>{{coche.marca}}</td>
+                <td>{{coche.modelo}}</td>
+                <td>{{coche.año}}</td>
+                <td>{{coche.color}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

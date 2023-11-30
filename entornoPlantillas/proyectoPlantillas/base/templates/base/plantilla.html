@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla</title>
+</head>
+
+<body>
+
+    {% with curso="daw" %}
+
+    <h1>Plantilla</h1>
+    {{ listaNumeros }}
+    <br>
+    {{ listaNumeros.0 }}
+    <br>
+    {{ curso }}
+
+    {% endwith %}
+
+    <hr>
+
+    <ol>
+        {% for numero in listaNumeros %}
+        <li>{{numero}}</li>
+        {% empty %}
+        <li>lista vacía</li>
+        {% endfor %}
+    </ol>
+
+    <hr>
+
+    <ol>
+        {% for numero in listaNumeros reversed %}
+        <li>{{numero}}</li>
+        {% endfor %}
+    </ol>
+
+    <hr>
+
+    <ol>
+        {% for numero in listaNumeros reversed %}
+        <li>{{forloop.counter}} : {{forloop.counter0}} : {{forloop.first}} : {{forloop.last}} : {{forloop.revcounter}} :
+            {{forloop.revcounter0}}</li>
+        {% endfor %}
+    </ol>
+</body>
+
+<hr>
+
+<ol>
+    {% for numero in listaNumeros reversed %}
+    <li>{{numero}}
+        <ol>
+            {% for letra in listaLetras %}
+            <li>{{letra}} : {{forloop.counter}} : {{forloop.parentloop.counter}}</li>
+            {% endfor %}
+        </ol>
+    </li>
+    {% endfor %}
+</ol>
+
+<hr>
+
+{% if escribe %}
+<p>Tengo que escribir</p>
+{% endif %}
+{% if presenta == "letras" %}
+{{ listaLetras }}
+{% elif presenta == "numeros" %}
+{{ listaNumeros }}
+{% else %}
+<p>No hay que presentar</p>
+{% endif %}
+
+<hr>
+
+{% if 3 in listaNumeros %}
+<p>Si esta el 3</p>
+{% else %}
+<p>No esta el 3</p>
+{% endif %}
+
+<hr>
+
+{% for letra in "abcde" %}
+<p>{{letra}}</p>
+{% endfor %}
+</body>
+
+</html>
