@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Playa: {{ playa.nombre }}</h3>
+    <br>
+    <h5>{{ playa.municipio }}</h5>
+    <h5>{{ playa.provincia }}</h5>
+    <h5>{{ playa.descripcion }}</h5>
+    <h5>{{ playa.longitud }}</h5>
+    <br>
+    <a href="{% url 'catalogo' %}">Volver</a>
+</body>
+</html>

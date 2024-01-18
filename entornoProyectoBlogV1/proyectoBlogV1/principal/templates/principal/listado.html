@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Mi Blog</h1>
+    <h2>Listado de articulos
+        {% if nombreCateg %} de la categoria {{ nombreCateg }} {% endif %}
+    </h2> 
+    <ol>
+        {% for articulo in articulos %}
+            <li>
+                <p>{{ articulo }} (Creado por {{ articulo.autor }})</p>
+                <p>Categorias:
+                    {% for categoria in articulo.categorias.all %}
+                        <a href="{% url 'artxcatg' categoria.id %}">{{ categoria }}</a>{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <hr>
+                {% if articulo.imagen %}<img src="{{ articulo.imagen.url }}" style="width: 200px;">{% endif %}
+                <p>{{ articulo.texto }}</p>
+                <hr>
+                {% for comentario in articulo.comentario_set.all %}
+                    <p>{{ comentario.texto }}</p>
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>

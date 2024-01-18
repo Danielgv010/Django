@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Catalogo de playas</h1>
+    <br>
+    <a href="{% url 'crear-playa' %}">Crear Tabla</a>
+    <br>
+    <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="provincia" id="provincia" value="{{ provincia }}">
+        <input type="submit" value="Buscar">
+    </form>
+    <br>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+        </tr>
+        {% for playa in listaPlayas %}
+        <tr>
+            <td>{{ playa }}</td>
+            <td><a href="{% url 'detalle' playa.id %}">Ver</a></td>
+            <td><a href="{% url 'editar-playa' playa.id %}">Modificar</a></td>
+            <td><a href="{% url 'borrar-playa' playa.id %}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

@@ -6,12 +6,13 @@
     <title>Plantillas</title>
 </head>
 <body>
-    <h1>Cabecera</h1>
+    {% include "base/cabecera.html" %}
 
     {% block contenido %}
         <p>CONTENIDO</p>
     {% endblock %}
 
-    <h3>Pie de página</h3>
+    {% include "base/footer.html" %}
+
 </body>
 </html>

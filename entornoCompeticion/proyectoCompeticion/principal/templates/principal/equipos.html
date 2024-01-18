@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EQUIPOS</h1>
+    {% for equipo in equipos %}
+    <hr>
+        <h3>Nombre: {{ equipo.nombre }}</h3>
+        <h3>Categoria: {{ equipo.categoria }}</h3>
+        <h3>Competiciones: 
+            {% for competicion in equipo.competicion.all %}
+                <br>
+                <h4>Nombre de la competicion: <a href="{% url 'equiposCompeticion' competicion.id %}">{{ competicion.nombre }}</a></h4>
+                <h4>Lugar de la competicion: {{ competicion.lugar }}</h4>
+                <h4>Fecha de la competicion: {{ competicion.fecha }}</h4>
+                <br>
+            {% endfor %}
+        </h3>
+        <h3>Jugadores: 
+            {% for jugador in equipo.jugador_set.all %}
+                <br>
+                <h4>Nombre del Jugador: {{ jugador.nombre }}</h4>
+                <h4>Correo del Jugador: {{ jugador.correo }}</h4>
+                <h4>Edad del Jugador: {{ jugador.edad }}</h4>
+                {% if jugador.foto %}
+                    <h4>Foto del Jugador: <img src="{{ jugador.foto.url }}" alt="" width="40px"></h4>
+                {% endif %}
+                <br>
+            {% endfor %}
+        </h3>
+        <br>
+        <br>
+        <br>
+    {% endfor %}
+</body>
+</html>
