@@ -6,7 +6,7 @@
         <div class="col-10">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <p>Quieres borrar este articulo "{{ articulo }}"?</p>
+                <p>Quieres borrar este equipo "{{ equipo }}"?</p>
                 <input type="submit" value="OK">
                 <a class="btn" href="{% url 'listado' %}">Cancelar</a>
             </form>

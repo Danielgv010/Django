@@ -6,13 +6,13 @@
         <div class="col-10">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <p>Quieres borrar este articulo "{{ articulo }}"?</p>
-                <input type="submit" value="OK">
-                <a class="btn" href="{% url 'listado' %}">Cancelar</a>
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <input type="submit" value="Modificar">
             </form>
         </div>
         <div class="col-1"></div>
-
     </div>
 </div>
 {% endblock %}

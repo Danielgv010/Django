@@ -9,7 +9,7 @@
                 <div class="row g-0">
                     <div class="col-4">
                         {% if articulo.imagen %}
-                        <img src="{{ articulo.imagen.url }}" class="img-fluid rounded-start"
+                            <img src="{{ articulo.imagen.url }}" class="img-fluid rounded-start"
                             alt="imagen de {{ articulo }}">
                         {% endif %}
                     </div>
@@ -29,9 +29,12 @@
                             {% for comentario in articulo.comentario_set.all %}
                             <p class="card-text"><small class="text-muted">{{ comentario }}</small></p>
                             {% endfor %}
-                            <p class="card-text"><small class="text-muted"><a href="{% url 'borrar' articulo.id %}">Borrar</a></small></p>
-                            <p class="card-text"><small class="text-muted"><a href="{% url 'modificar' articulo.id %}">Modificar</a></small></p>
-
+                            {% if articulo.autor == request.user %}
+                            <p class="card-text">
+                                <small class="text-muted"><a href="{% url 'borrar' articulo.id %}">Borrar</a></small>
+                                <small class="text-muted"><a href="{% url 'modificar' articulo.id %}">Modificar</a></small>
+                            </p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,33 @@
+{% extends "principal/base.html" %}
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            {% for jugador in jugador_list %}
+            <div class="card mb-3" style="max-width: 1200px;">
+                <div class="row g-0">
+                    <div class="col-4">
+                        {% if jugador.foto %}
+                        <img src="{{ jugador.foto.url }}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ jugador }}</h5>
+                            <p class="card-text">{{ jugador.correo }} {{ jugador.edad }}</p>
+                            <p class="card-text">
+                                Equipo: {{ jugador.equipo }}
+                            </p>
+                            <p class="card-text"><small class="text-muted">Modificado {{ jugador.modificado }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+{% endblock %}
