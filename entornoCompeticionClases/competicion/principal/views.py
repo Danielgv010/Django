@@ -82,4 +82,4 @@ class crearJugador(CreateView):
 
     def form_valid(self, form):
         form.instance.autor = self.request.user
-        return super(crearCompeticion, self).form_valid(form)
+        return super(crearJugador, self).form_valid(form)
