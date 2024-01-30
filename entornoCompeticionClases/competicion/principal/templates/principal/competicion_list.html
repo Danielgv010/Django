@@ -11,12 +11,12 @@
                     </div>
                     <div class="col-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{ competicion }}</h5>
+                            <h5 class="card-title"><a href="{% url 'competicionDetail' competicion.id %}">{{ competicion }}</a></h5>
                             <p class="card-text">{{ competicion.lugar }} {{ competicion.fecha }}</p>
                             <p class="card-text">
                                 Equipos:
                                 {% for equipo in competicion.equipo_set.all %}
-                                <a href="{% url 'listadoEquipo' %}">{{ equipo }}</a>{% if not forloop.last %},{% endif %}
+                                <a href="{% url 'equipoDetail' equipo.id %}">{{ equipo }}</a>{% if not forloop.last %},{% endif %}
                                 {% endfor %}
                             </p>
                             <p class="card-text"><small class="text-muted">Modificado {{ competicion.modificado }}</small>

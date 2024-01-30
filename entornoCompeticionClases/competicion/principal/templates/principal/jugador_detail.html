@@ -1,0 +1,40 @@
+{% extends "principal/base.html" %}
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="card mb-3" style="max-width: 1200px;">
+                <div class="row g-0">
+                    <div class="col-4">
+                        {% if jugador.foto %}
+                        <img src="{{ jugador.foto.url }}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ jugador }}</h5>
+                            <p class="card-text">{{ jugador.correo }} {{ jugador.edad }}</p>
+                            <p class="card-text">Equipo: 
+                                <a href="{% url 'equipoDetail' jugador.equipo.id %}">{{ jugador.equipo }}</a>
+                            </p>
+                            <p class="card-text"><small class="text-muted">Modificado {{ jugador.modificado }}</small>
+                            </p>
+                            {% if jugador.equipo.responsable == request.user %}
+                            <p class="card-text">
+                                <p class="card-text">
+                                    <small class="text-muted"><a href="{% url 'borrarJugador' jugador.id %}">Borrar</a></small>
+                                    <small class="text-muted"><a href="{% url 'modificarJugador' jugador.id %}">Modificar</a></small>
+                                </p>
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+{% endblock %}

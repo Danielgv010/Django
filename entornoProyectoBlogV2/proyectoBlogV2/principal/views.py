@@ -3,8 +3,9 @@ from django.http import HttpRequest
 from django.http.response import HttpResponse as HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from .models import Articulo
+from .models import Articulo, Categoria
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
@@ -53,3 +54,6 @@ class modificarArticulo(UpdateView):
             raise PermissionDenied #lanzar un error de permisos
 
         return super().dispatch(request, *args, **kwargs)
+
+class categoriaDetalle(DetailView):
+    model = Categoria
