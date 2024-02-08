@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>EQUIPOS</h1>
+    <h1><a href="{% url 'crear' %}">Crear</a></h1>
     {% for equipo in equipos %}
     <hr>
         <h3>Nombre: {{ equipo.nombre }}</h3>
@@ -31,6 +32,11 @@
                 {% endif %}
                 <br>
             {% endfor %}
+        </h3>
+        <h3>
+            {{ equipo.id }}
+            <h4><a href="{% url 'borrar' equipo.id %}">Borrar</a></h4>
+            <h4><a href="">Modificar</a></h4>
         </h3>
         <br>
         <br>

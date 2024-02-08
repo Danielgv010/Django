@@ -19,7 +19,8 @@ def listadoArticulos(request):
     listado = loader.get_template('principal/listado.html')
 
     #devolver el template renderizado con los datos pasados en el contexto
-    return HttpResponse(listado.render(contexto,request))
+    # return HttpResponse(listado.render(contexto,request))
+    return render(request,'principal/listado.html',contexto)
 
 def articulosXcategoria(request, categ_id):
     # Recuperar los articulos de la categoria categ_id
@@ -30,8 +31,5 @@ def articulosXcategoria(request, categ_id):
         "articulos":categoria.articulo_set.all()
     }
 
-    #cargar la plantilla
-    listado = loader.get_template('principal/listado.html')
-
     #devolver el template renderizado con los datos pasados en el contexto
-    return HttpResponse(listado.render(contexto,request))
+    return render(request,'principal/listado.html',contexto)

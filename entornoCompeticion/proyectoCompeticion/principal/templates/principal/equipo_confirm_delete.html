@@ -1,0 +1,6 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>Quieres borrar este equipo "{{ equipo }}"?</p>
+    <input type="submit" value="OK">
+    <a class="btn" href="{% url 'equipos' %}">Cancelar</a>
+</form>

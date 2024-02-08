@@ -62,7 +62,7 @@ class borrarEquipo(DeleteView):
 @method_decorator(login_required,name="dispatch")
 class modificarEquipo(UpdateView):
     model = Equipo
-    fields = ["nombre","categoria","competicion","responsable"]
+    fields = ["nombre","categoria","competicion","responsable",]
     template_name_suffix = "_update_form"
     success_url = reverse_lazy('listado')
 
